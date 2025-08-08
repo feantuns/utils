@@ -1,3 +1,9 @@
+/**
+ * Script para executar testes apenas nos arquivos modificados
+ * na branch atual em relação à branch de origem (por padrão, master).
+ * Utiliza o comando `git diff` para identificar os arquivos alterados
+ * e executa os testes correspondentes.
+ */
 const { execSync } = require("child_process");
 
 // Função para executar comandos de terminal e lidar com erros
