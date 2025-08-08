@@ -18,7 +18,9 @@ function execCommand(command) {
 const BASE_DIR = "src";
 
 // Obtém a lista de pastas modificadas na branch atual
-const getModifiedDirsCommand = `git diff --name-only origin/master...HEAD | grep "^${BASE_DIR}" | xargs -I {} dirname {} | sort | uniq`;
+const getModifiedDirsCommand = `git diff --name-only origin/${
+  process.argv[2] || "master"
+}...HEAD | grep "^${BASE_DIR}" | xargs -I {} dirname {} | sort | uniq`;
 let modifiedDirs;
 try {
   const modifiedDirsOutput = execCommand(getModifiedDirsCommand);
