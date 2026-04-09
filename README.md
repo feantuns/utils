@@ -40,19 +40,132 @@ node scripts/run-tests-only-changed.js develop
 
 ## ⚡ Aliases
 
+### [`git-shell-aliases.sh`](./aliases/git-shell-aliases.sh)
+
+Aliases de shell para o dia a dia com git. Adicione ao seu `~/.zshrc` ou `~/.bashrc`:
+
+```bash
+source /caminho/para/aliases/git-shell-aliases.sh
+```
+
+Depois recarregue o terminal:
+
+```bash
+source ~/.zshrc  # ou ~/.bashrc
+```
+
+**Aliases mais usados:**
+
+`go` — troca de branch
+
+```bash
+go feat/minha-feature
+go main
+```
+
+`gob` — cria e entra em nova branch
+
+```bash
+gob feat/novo-componente
+```
+
+`gps` — push da branch atual (sem precisar digitar o nome)
+
+```bash
+gps
+# equivale a: git push origin feat/novo-componente
+```
+
+`gpl` — pull da branch atual
+
+```bash
+gpl
+# equivale a: git pull origin feat/novo-componente
+```
+
+`gl` — log visual com grafo, autor e tempo relativo
+
+```bash
+gl
+# * a1b2c3d - (HEAD -> feat/x) fix: ajuste no layout (2 hours ago) <João>
+# * d4e5f6g - (main) feat: adiciona componente Button (1 day ago) <Maria>
+```
+
+`gagc` — add tudo e commita de uma vez
+
+```bash
+gagc -m "feat: adiciona header responsivo"
+```
+
+`gstp` — stash com mensagem descritiva
+
+```bash
+gstp "wip: ajuste no modal"
+```
+
+`gss` — status resumido
+
+```bash
+gss
+#  M src/components/Header.tsx
+# ?? src/components/NewFile.tsx
+```
+
+Tabela completa:
+
+| Alias | Comando |
+|---|---|
+| `g` | `git` |
+| `ga` | `git add -A` |
+| `gaf` | `git add` |
+| `gb` | `git branch -a` |
+| `gbl` | `git branch` |
+| `gbdl` | `git branch -d` |
+| `gbdlh` | `git branch -D` |
+| `gbdr` | `git push origin --delete` |
+| `gbrn` | `git branch -m` |
+| `go` | `git checkout` |
+| `gob` | `git checkout -b` |
+| `gcf` | `git checkout -- .` |
+| `gc` | `git commit` |
+| `gca` | `git commit --amend` |
+| `gagc` | `git add -A && git commit` |
+| `gagca` | `git add -A && git commit --amend` |
+| `gcp` | `git cherry-pick -x` |
+| `gcpa` | `git cherry-pick --abort` |
+| `gcpc` | `git cherry-pick --continue` |
+| `gd` | `git diff` |
+| `gl` | log com grafo e formatação |
+| `glc` | log com grafo e datas relativas |
+| `gln` | `git log` |
+| `gm` | `git merge --no-ff` |
+| `gma` | `git merge --abort` |
+| `gpl` | `git pull origin <branch-atual>` |
+| `gps` | `git push origin <branch-atual>` |
+| `gpst` | `git push origin --tags` |
+| `greb` | `git rebase -i` |
+| `gru` | `git remote update --prune` |
+| `gunst` | `git reset HEAD` |
+| `gst` | `git stash` |
+| `gstl` | `git stash list` |
+| `gsta` | `git stash apply` |
+| `gstd` | `git stash drop` |
+| `gstp` | `git stash push -m` |
+| `gs` | `git status` |
+| `gss` | `git status --short` |
+| `gta` | `git tag -a` |
+| `gtd` | `git tag -d` |
+| `gtl99` | `git tag -n99` |
+
+---
+
 ### [`git-aliases.sh`](./aliases/git-aliases.sh)
 
-Aliases para o git que estendem o CLI com comandos customizados.
-
-**Como instalar:**
-
-Execute uma vez para registrar os aliases no git global:
+Comandos customizados registrados no git global via `git config`. Execute uma vez:
 
 ```bash
 bash aliases/git-aliases.sh
 ```
-
-Pronto — os comandos ficam disponíveis em qualquer repositório, sem precisar de nada no `.bashrc` ou `.zshrc`.
 
 ---
 
@@ -76,7 +189,7 @@ git conflicts main
 
 **`git pr <branch-destino>`**
 
-Faz push da branch atual e cria um Pull Request via [GitHub CLI](https://cli.github.com), sem abrir o navegador. Printa o link do PR no terminal.
+Faz push da branch atual e abre o modo interativo do [GitHub CLI](https://cli.github.com) para preencher título, body, reviewers, etc. Printa o link do PR no terminal.
 
 > Requer `gh` instalado e autenticado: `gh auth login`
 
@@ -87,6 +200,10 @@ git pr main
 ```
 📤 Fazendo push de 'feat/minha-feature'...
 🔗 Criando Pull Request para 'main'...
+
+? Title: feat: adiciona header responsivo
+? Body: [(e) to launch nano, enter to skip]
+? What's next? Submit
 
 ✅ Pull Request criado com sucesso!
 🔗 https://github.com/usuario/repo/pull/42
