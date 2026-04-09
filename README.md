@@ -1,40 +1,40 @@
 # 🧰 Front-end Toolkit
 
-Uma coletânea de scripts, aliases, snippets e configurações que acumulei ao longo da carreira como desenvolvedor front-end. Tudo aqui já resolveu um problema real — talvez resolva o seu também.
+A collection of scripts, aliases, snippets, and configs I've gathered throughout my career as a front-end developer. Everything here has solved a real problem — maybe it'll solve yours too.
 
 ---
 
-## 📁 Estrutura
+## 📁 Structure
 
 ```
 .
-├── scripts/        # Scripts Node.js e shell para automação de tarefas
-├── aliases/        # Aliases de terminal para git, npm e outros
-├── snippets/       # Snippets de código reutilizáveis (hooks, utils, componentes)
-└── configs/        # Arquivos de configuração prontos para uso (ESLint, TSConfig, etc.)
+├── scripts/        # Node.js and shell scripts for task automation
+├── aliases/        # Terminal aliases for git, npm, and more
+├── snippets/       # Reusable code snippets (hooks, utils, components)
+└── configs/        # Ready-to-use config files (ESLint, TSConfig, etc.)
 ```
 
 ---
 
 ## 🚀 Scripts
 
-| Arquivo | Descrição |
+| File | Description |
 |---|---|
-| [`run-tests-only-changed.js`](./scripts/run-tests-only-changed.js) | Executa testes apenas nos arquivos modificados em relação à branch de origem |
+| [`run-tests-only-changed.js`](./scripts/run-tests-only-changed.js) | Runs tests only for files changed in the current branch compared to the base branch |
 
-### Como usar `run-tests-only-changed.js`
+### How to use `run-tests-only-changed.js`
 
-Roda os testes somente dos arquivos alterados na branch atual comparando com `master` (ou outra branch passada como argumento).
+Runs tests only for files changed in the current branch, comparing against `master` (or another branch passed as an argument).
 
 ```bash
-# Comparando com master (padrão)
+# Compare against master (default)
 node scripts/run-tests-only-changed.js
 
-# Comparando com outra branch
+# Compare against another branch
 node scripts/run-tests-only-changed.js develop
 ```
 
-> Requer `git` e `npm run test:ci` configurado no projeto.
+> Requires `git` and `npm run test:ci` configured in the project.
 
 ---
 
@@ -42,68 +42,68 @@ node scripts/run-tests-only-changed.js develop
 
 ### [`git-shell-aliases.sh`](./aliases/git-shell-aliases.sh)
 
-Aliases de shell para o dia a dia com git. Adicione ao seu `~/.zshrc` ou `~/.bashrc`:
+Shell aliases for everyday git usage. Add to your `~/.zshrc` or `~/.bashrc`:
 
 ```bash
-source /caminho/para/aliases/git-shell-aliases.sh
+source /path/to/aliases/git-shell-aliases.sh
 ```
 
-Depois recarregue o terminal:
+Then reload your terminal:
 
 ```bash
-source ~/.zshrc  # ou ~/.bashrc
+source ~/.zshrc  # or ~/.bashrc
 ```
 
-**Aliases mais usados:**
+**Most used aliases:**
 
-`go` — troca de branch
+`go` — switch branches
 
 ```bash
-go feat/minha-feature
+go feat/my-feature
 go main
 ```
 
-`gob` — cria e entra em nova branch
+`gob` — create and switch to a new branch
 
 ```bash
-gob feat/novo-componente
+gob feat/new-component
 ```
 
-`gps` — push da branch atual (sem precisar digitar o nome)
+`gps` — push current branch (no need to type the branch name)
 
 ```bash
 gps
-# equivale a: git push origin feat/novo-componente
+# equivalent to: git push origin feat/new-component
 ```
 
-`gpl` — pull da branch atual
+`gpl` — pull current branch
 
 ```bash
 gpl
-# equivale a: git pull origin feat/novo-componente
+# equivalent to: git pull origin feat/new-component
 ```
 
-`gl` — log visual com grafo, autor e tempo relativo
+`gl` — visual log with graph, author and relative time
 
 ```bash
 gl
-# * a1b2c3d - (HEAD -> feat/x) fix: ajuste no layout (2 hours ago) <João>
-# * d4e5f6g - (main) feat: adiciona componente Button (1 day ago) <Maria>
+# * a1b2c3d - (HEAD -> feat/x) fix: layout adjustment (2 hours ago) <John>
+# * d4e5f6g - (main) feat: add Button component (1 day ago) <Jane>
 ```
 
-`gagc` — add tudo e commita de uma vez
+`gagc` — stage everything and commit in one shot
 
 ```bash
-gagc -m "feat: adiciona header responsivo"
+gagc -m "feat: add responsive header"
 ```
 
-`gstp` — stash com mensagem descritiva
+`gstp` — stash with a descriptive message
 
 ```bash
-gstp "wip: ajuste no modal"
+gstp "wip: modal adjustment"
 ```
 
-`gss` — status resumido
+`gss` — short status
 
 ```bash
 gss
@@ -111,9 +111,9 @@ gss
 # ?? src/components/NewFile.tsx
 ```
 
-Tabela completa:
+Full reference:
 
-| Alias | Comando |
+| Alias | Command |
 |---|---|
 | `g` | `git` |
 | `ga` | `git add -A` |
@@ -135,13 +135,13 @@ Tabela completa:
 | `gcpa` | `git cherry-pick --abort` |
 | `gcpc` | `git cherry-pick --continue` |
 | `gd` | `git diff` |
-| `gl` | log com grafo e formatação |
-| `glc` | log com grafo e datas relativas |
+| `gl` | graph log with formatting |
+| `glc` | graph log with relative dates |
 | `gln` | `git log` |
 | `gm` | `git merge --no-ff` |
 | `gma` | `git merge --abort` |
-| `gpl` | `git pull origin <branch-atual>` |
-| `gps` | `git push origin <branch-atual>` |
+| `gpl` | `git pull origin <current-branch>` |
+| `gps` | `git push origin <current-branch>` |
 | `gpst` | `git push origin --tags` |
 | `greb` | `git rebase -i` |
 | `gru` | `git remote update --prune` |
@@ -161,7 +161,7 @@ Tabela completa:
 
 ### [`git-aliases.sh`](./aliases/git-aliases.sh)
 
-Comandos customizados registrados no git global via `git config`. Execute uma vez:
+Custom git commands registered globally via `git config`. Run once to install:
 
 ```bash
 bash aliases/git-aliases.sh
@@ -169,72 +169,72 @@ bash aliases/git-aliases.sh
 
 ---
 
-**`git conflicts <branch-destino>`**
+**`git conflicts <target-branch>`**
 
-Faz push da branch atual e verifica se há conflitos com a branch destino, sem realizar o merge de fato.
+Pushes the current branch and checks for conflicts against the target branch, without actually performing the merge.
 
 ```bash
 git conflicts main
 ```
 
 ```
-📤 Fazendo push de 'feat/minha-feature'...
-🔍 Verificando conflitos entre 'feat/minha-feature' e 'main'...
-⚠️  Conflitos encontrados com 'main':
+📤 Pushing 'feat/my-feature'...
+🔍 Checking conflicts between 'feat/my-feature' and 'main'...
+⚠️  Conflicts found with 'main':
    • src/components/Button.tsx
    • src/styles/global.css
 ```
 
 ---
 
-**`git pr <branch-destino>`**
+**`git pr <target-branch>`**
 
-Faz push da branch atual e abre o modo interativo do [GitHub CLI](https://cli.github.com) para preencher título, body, reviewers, etc. Printa o link do PR no terminal.
+Pushes the current branch and opens the interactive [GitHub CLI](https://cli.github.com) prompt to fill in the title, body, reviewers, etc. Prints the PR link in the terminal when done.
 
-> Requer `gh` instalado e autenticado: `gh auth login`
+> Requires `gh` installed and authenticated: `gh auth login`
 
 ```bash
 git pr main
 ```
 
 ```
-📤 Fazendo push de 'feat/minha-feature'...
-🔗 Criando Pull Request para 'main'...
+📤 Pushing 'feat/my-feature'...
+🔗 Creating Pull Request targeting 'main'...
 
-? Title: feat: adiciona header responsivo
+? Title: feat: add responsive header
 ? Body: [(e) to launch nano, enter to skip]
 ? What's next? Submit
 
-✅ Pull Request criado com sucesso!
-🔗 https://github.com/usuario/repo/pull/42
+✅ Pull Request created successfully!
+🔗 https://github.com/user/repo/pull/42
 ```
 
 ---
 
 ## 🧩 Snippets
 
-Em breve — hooks React, funções utilitárias, componentes base e mais.
+Coming soon — React hooks, utility functions, base components, and more.
 
 ---
 
 ## ⚙️ Configs
 
-Em breve — configurações de ESLint, Prettier, TypeScript e outras ferramentas.
+Coming soon — ESLint, Prettier, TypeScript, and other tool configurations.
 
 ---
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Encontrou algo útil que deveria estar aqui? Fique à vontade para abrir uma PR ou issue.
+Found something useful that should be here? Feel free to open a PR or issue.
 
-1. Fork o repositório
-2. Crie uma branch: `git checkout -b feat/meu-script`
-3. Commit suas mudanças: `git commit -m 'feat: adiciona script X'`
-4. Push: `git push origin feat/meu-script`
-5. Abra uma Pull Request
+1. Fork the repository
+2. Create a branch: `git checkout -b feat/my-script`
+3. Commit your changes: `git commit -m 'feat: add script X'`
+4. Push: `git push origin feat/my-script`
+5. Open a Pull Request
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-MIT — use à vontade.
+MIT — use it freely.
