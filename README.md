@@ -46,17 +46,13 @@ Aliases para o git que estendem o CLI com comandos customizados.
 
 **Como instalar:**
 
-Adicione ao seu `~/.bashrc` ou `~/.zshrc`:
+Execute uma vez para registrar os aliases no git global:
 
 ```bash
-source /caminho/para/aliases/git-aliases.sh
+bash aliases/git-aliases.sh
 ```
 
-Depois recarregue o terminal:
-
-```bash
-source ~/.zshrc  # ou ~/.bashrc
-```
+Pronto — os comandos ficam disponíveis em qualquer repositório, sem precisar de nada no `.bashrc` ou `.zshrc`.
 
 ---
 
