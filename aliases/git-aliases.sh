@@ -82,16 +82,16 @@ git config --global alias.pr '!f() {
   echo "🔗 Criando Pull Request para \"$target_branch\"..."
   echo ""
 
-  pr_url=$(gh pr create --base "$target_branch" --head "$current_branch" 2>&1)
+  # Roda sem capturar output para preservar o TTY e ativar o modo interativo do gh
+  gh pr create --base "$target_branch" --head "$current_branch"
   exit_code=$?
 
   if [ $exit_code -ne 0 ]; then
-    echo "❌ Falha ao criar o PR:"
-    echo "   $pr_url"
+    echo "❌ Falha ao criar o PR."
     return 1
   fi
 
-  pr_link=$(echo "$pr_url" | grep -Eo "https://github\.com[^ ]+")
+  pr_link=$(gh pr view --json url -q ".url" 2>/dev/null)
   echo ""
   echo "✅ Pull Request criado com sucesso!"
   echo "🔗 $pr_link"
