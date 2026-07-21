@@ -10,7 +10,7 @@ A collection of scripts, aliases, snippets, and configs I've gathered throughout
 .
 ├── scripts/        # Node.js and shell scripts for task automation
 ├── aliases/        # Terminal aliases for git, npm, and more
-├── skills/         # Agent skills for Kiro IDE
+├── skills/         # Agent skills for AI coding agents
 ├── snippets/       # Reusable code snippets (hooks, utils, components)
 └── configs/        # Ready-to-use config files (ESLint, TSConfig, etc.)
 ```
@@ -244,13 +244,13 @@ A collection of agent skills — structured instructions that give AI agents con
 
 ```bash
 # Install a single skill
-cp -r skills/frontend-design ~/.kiro/skills/
+cp -r skills/frontend-design /path/to/your/agent/skills/
 
 # Install all skills at once
-cp -r skills/* ~/.kiro/skills/
+cp -r skills/* /path/to/your/agent/skills/
 ```
 
-> The path above is for Kiro. Check your AI agent's documentation for the correct skills directory.
+> Check your AI agent's documentation for the correct skills directory.
 
 ---
 
