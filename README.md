@@ -10,6 +10,7 @@ A collection of scripts, aliases, snippets, and configs I've gathered throughout
 .
 ├── scripts/        # Node.js and shell scripts for task automation
 ├── aliases/        # Terminal aliases for git, npm, and more
+├── skills/         # Agent skills for Kiro IDE
 ├── snippets/       # Reusable code snippets (hooks, utils, components)
 └── configs/        # Ready-to-use config files (ESLint, TSConfig, etc.)
 ```
@@ -208,6 +209,48 @@ git pr main
 ✅ Pull Request created successfully!
 🔗 https://github.com/user/repo/pull/42
 ```
+
+---
+
+## 🤖 Skills
+
+### [`skills/`](./skills/)
+
+A collection of agent skills — structured instructions that give AI agents context and behavior for specific tasks. Compatible with AI coding agents that support the skill/context file convention.
+
+| Skill | Description |
+|---|---|
+| [`claude-api`](./skills/claude-api/) | Build apps with the Claude API or Anthropic SDK |
+| [`cloudflare`](./skills/cloudflare/) | Cloudflare platform — Workers, Pages, KV, D1, R2, AI, and more |
+| [`cria-prd`](./skills/cria-prd/) | Creates Product Requirements Documents (PRDs) from feature requests |
+| [`cria-techspec`](./skills/cria-techspec/) | Creates Technical Specs from existing PRDs |
+| [`criar-tasks`](./skills/criar-tasks/) | Converts PRD + Tech Spec into a sequenced list of implementation tasks |
+| [`executar-bugfix`](./skills/executar-bugfix/) | Reads bugs.md, analyzes root causes, implements fixes and regression tests |
+| [`executar-qa`](./skills/executar-qa/) | Validates implementation via E2E tests, accessibility (WCAG 2.2), and visual analysis |
+| [`executar-review`](./skills/executar-review/) | Code review against project rules, test suites, and Tech Spec |
+| [`executar-task`](./skills/executar-task/) | Implements feature tasks from PRD/TechSpec context |
+| [`frontend-design`](./skills/frontend-design/) | Creates distinctive, production-grade frontend interfaces |
+| [`hono`](./skills/hono/) | Develop Hono applications — docs search, API reference, request testing |
+| [`prompt-enhancement`](./skills/prompt-enhancement/) | Transforms vague prompts into structured prompts using XML and Markdown |
+| [`shadcn`](./skills/shadcn/) | Manages shadcn/ui components — adding, styling, composing, and debugging |
+| [`skill-best-practices`](./skills/skill-best-practices/) | Authors professional-grade agent skills following the agentskills.io spec |
+| [`task-review`](./skills/task-review/) | Reviews completed task implementations against code standards and test suites |
+| [`ui-ux-pro-max`](./skills/ui-ux-pro-max/) | UI/UX design intelligence — 50+ styles, 161 palettes, 57 font pairings, and more |
+| [`vercel-composition-patterns`](./skills/vercel-composition-patterns/) | Vercel component composition patterns |
+| [`vercel-react-best-practices`](./skills/vercel-react-best-practices/) | React and Next.js performance optimization guidelines from Vercel Engineering |
+| [`web-design-guidelines`](./skills/web-design-guidelines/) | Reviews UI code for Web Interface Guidelines and accessibility compliance |
+
+**How to install a skill:**
+
+```bash
+# Install a single skill
+cp -r skills/frontend-design ~/.kiro/skills/
+
+# Install all skills at once
+cp -r skills/* ~/.kiro/skills/
+```
+
+> The path above is for Kiro. Check your AI agent's documentation for the correct skills directory.
 
 ---
 
